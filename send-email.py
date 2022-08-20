@@ -16,6 +16,17 @@ message["To"] = reciever_email
 message["Subject"] = subject
 message.set_content(body)
 
+# HTML
+html = f"""
+<html>
+    <body>
+        <h1>{subject}</h1>
+        <p>{body}</p>
+    </body>
+</html>
+"""
+message.add_alternative(html, subtype="html")
+
 context = ssl.create_default_context()
 
 print("Sending Email")
